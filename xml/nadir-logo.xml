@@ -1,0 +1,34 @@
+<!--
+	krpano 1.0.8
+	- (rotating) nadir logo example
+-->
+
+<krpano version="1.0.8">
+
+
+
+
+	<!-- events - show a infotext on start, update logo rotation--> 
+	<events onviewchange="if(hotspot[nadirlogo].rotatewithview, set(hotspot[nadirlogo].rotate,get(view.hlookat)) );"
+	        />
+
+	<view hlookat="0" vlookat="55" fov="110" />
+
+
+
+	<!-- nadir logo (distored hotspot) -->
+	<layer name="nadirlogo"
+			 type="container"	
+	         url="bh_roundlogo.png"
+	         ath="0"
+	         atv="90"
+	         distorted="true"
+	         scale="1.0"
+	         rotate="0.0"
+	         rotatewithview="false"
+	         onclick="switch(rotatewithview); invalidatescreen();"
+	         zorder="5"
+	         />
+
+</krpano>
+

@@ -1,0 +1,35 @@
+<krpano version="1.18">
+
+		<layer name="border" type="container" bgcolor="0x000000" bgalpha="0.5" align="top" width="100%" height="66" keep="true"   >
+
+	
+	<layer name="hcu" url="../images/HCU_Logo_trans2.png" keep="true" alpha="0.7" align="leftttop" edge="lefttop" x="10" y="0" height="66" width="300" zorder="3"  
+	onhover="showtext('HCU Hamburg');set(alpha,1.0);" onout="set(alpha,0.7);" onclick="openurl(https://www.hcu-hamburg.de/master/geomatik/,_blank);" />
+	
+
+<!--    <layer name="AMH Harburg" url="../images/amh_logo.png" keep="true" alpha="0.7" align="righttop" x="10" y="0" height="66" width="70" 
+    zorder="3" onhover="set(alpha,1.0);showtext('AMH Harburg');" onout="set(alpha,0.7);" onclick="openurl(https://amh.de/,_blank);"/>	
+ 
+	<layer name="denkmal" url="../images/arch_denkmal.jpg" keep="true" alpha="0.7" align="righttop" edge="righttop" y="0" height="106" width="95" zorder="3"  
+	onhover="showtext('Denkmal');set(alpha,1.0);" onout="set(alpha,0.7);" onclick="openurl(https://www.denkmalpflege.niedersachsen.de/archaeologie/,_blank);" />    
+	
+   <layer name="denkmal" type="container" keep="true" align="right" x="188" y="0" height="66" width="106" bgcolor="0xFFFFFF" bgalpha="0.7" onhover="set(bgalpha,1.0)" onout="set(bgalpha,0.7)">
+</layer>-->	
+   
+<!--
+   <layer name="DAI_back" type="container" keep="true" align="right" x="115" y="0" height="66" width="68" bgcolor="0xFFFFFF" bgalpha="0.7" onhover="set(bgalpha,1.0)" onout="set(bgalpha,0.7)">
+</layer>-->	
+
+</layer>
+
+
+
+</krpano>
+
+
+
+
+
+
+
+

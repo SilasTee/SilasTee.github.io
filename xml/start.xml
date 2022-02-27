@@ -1,0 +1,10 @@
+<krpano version="1.18">
+
+		<layer name="startinstr" type="container" bgcolor="0x000000" bgalpha="0.8" alpha="100" bgcapture="true" align="center" width="85%" height="85%" keep="true" visible="false" zorder="10">
+    <layer name="closestart" url="../images/Close.png" scale="0.3" align="righttop" onclick="action(close,startinstr)" />   
+    <layer name="instructions" url="../images/start2.png" scale="1.2" align="center"/>
+    </layer>
+
+
+</krpano>  
+

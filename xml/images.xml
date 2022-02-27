@@ -1,0 +1,159 @@
+<krpano version="1.20">
+
+<action name="open">
+	set(layer[%1].visible, true);
+	tween(layer[%1].alpha, 1);
+</action>
+ 
+<action name="close">
+	tween(layer[%1].alpha,0,0.5,default, set(layer[%1].visible,false));
+</action>
+
+<!--	<layer name="box1" type="container" align="lefttop" x="50" y="50" width="250" height="250" bgcolor="0x000000" bgalpha="0.5" bgcapture="true" maskchildren="true" ondown="draglayer();">
+		<layer name="txt1" style="text" html="drag me" align="lefttop" />
+		<layer name="box2" type="container" align="center" x="0" y="0" width="100" height="100" bgcolor="0x44AADD" bgalpha="1.0" bgcapture="true" ondown="draglayer();">
+			<layer name="txt2" style="text" html="drag me" align="center" />
+		</layer>
+		<layer name="txt3" style="text" html="maskchildren=true" align="leftbottom" />
+	</layer>-->
+	
+<!--	<layer name="html_div"
+	       type="container"
+	       align="lefttop" width.normal="33%" width.mobile="50%" height.normal="250" height.mobile="400" x="10" y="10"
+	       bgborder="1 0xFFFFFF 0.5" bgcolor="0x555555" bgalpha="0.7"
+	       bgcapture="true" capture="true" handcursor="false"
+	       onloaded="add_html_code(get(data[html_example_code].content), 10);"
+	       />-->
+	
+	<!-- arguments: 1=htmlcode, 2=padding (optional) -->
+<!--	<action name="add_html_code" type="Javascript"><![CDATA[
+	
+		var div = document.createElement("div");
+		
+		// basic styles to fit into the layer size and allow scrolling:
+		div.style.width = "100%";
+		div.style.height = "100%";
+		div.style.overflow = "auto";
+		div.style.boxSizing = "border-box";
+		div.style.padding = args[2] ? (args[2] + "px") : "0";
+		
+		// allow text selection (optional):
+		div.style.webkitUserSelect =
+		div.style.MozUserSelect =
+		div.style.msUserSelect =
+		div.style.userSelect = "text";
+		
+		// hacks for browsed-based mouse-wheel and touch-scrolling support:
+		div.addEventListener("mousewheel", function(event){ event.stopPropagation(); }, true);
+		div.addEventListener("DOMMouseScroll", function(event){ event.stopPropagation(); }, true);
+		div.addEventListener("touchstart", function(event){ if(krpano.device.ios && window.innerHeight == krpano.display.htmltarget.offsetHeight){ /* avoid the iOS 'overscrolling' for fullpage viewers */ var bs = document.body.parentNode.style; bs.position="fixed"; bs.top=0; bs.left=0; bs.right=0; bs.bottom=0; } krpano.control.preventTouchEvents = false; event.stopPropagation(); }, true);
+		div.addEventListener("touchend", function(event){ krpano.control.preventTouchEvents = true; event.stopPropagation(); }, true);
+		div.addEventListener("gesturestart", function(event){ event.preventDefault(); }, true);
+		
+		// add some html code:
+		div.innerHTML = args[1];
+	
+		// add the div to the layer element:
+		caller.sprite.appendChild(div);
+	
+	]]></action>-->
+	
+<!--	<data name="html_example_code"><![CDATA[
+		
+		<h2>This is a html div inside krpano...</h2>
+		<hr>
+		<ul>
+			<li>With support for browser-based-scrolling by mouse-wheel, scroll-bars and touch-controls.</li>
+			<li>Fully integrated into krpano as &lt;layer&gt; container element.</li>
+		</ul>
+		Here a <a href="https://krpano.com" target="_blank" style="color:#FFFFFF;">link</a> for testing browser events.<br>
+		Here a <span style="text-decoration:underline;cursor:pointer;" onclick="document.getElementById('krpanoSWFObject').call('tween(layer[html_div].x,calc(layer[html_div].x LT 200 ? 200 : 10));');" style="color:#FFFFFF;">link</span> for testing the krpano JS API.<br>
+		<br>
+		And here some text to scroll:<br>
+		Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.<br>
+		
+	]]></data>-->
+
+	<!-- a style for a simple textfield element -->
+<!--	<style name="text"
+	       type="text"
+	       background="false"
+	       css="color:#FFFFFF;"
+	       enabled="false"
+	       />-->
+	
+	<!-- the action for dragging the layer elements - call it once in the ondown event -->
+<!--	<action name="draglayer">
+		copy(drag_currentx, x);
+		copy(drag_currenty, y);
+		copy(drag_stagex, mouse.stagex);
+		copy(drag_stagey, mouse.stagey);
+		indexoftxt(align_contains_right, get(align), 'right');
+		indexoftxt(align_contains_bottom, get(align), 'bottom');
+		calc(drag_align_x, align_contains_right GE 0 ? -1 : +1);
+		calc(drag_align_y, align_contains_bottom GE 0 ? -1 : +1);
+		asyncloop(pressed,
+			calc(x, drag_currentx + (mouse.stagex - drag_stagex)*drag_align_x);
+			calc(y, drag_currenty + (mouse.stagey - drag_stagey)*drag_align_y);
+		  );
+	</action>
+
+	
+<layer name="ctr_trommel" keep="true" type="container" align="center" width="100%" height="100%" bgcolor="0x000000" bgalpha="0.5" bgcapture="true" visible="false" >
+	<layer name="box_left_trommel" type="container" x="0" y="0" width="50%" height="100%" bgcapture="true" >
+		<layer name="scrollarea_left_trommel" url.flash="../plugins/scrollarea.swf" url.html5="../plugins/scrollarea.js" align="center" width="100%" height="100%" >
+			<layer name="image_left_trommel" url="../images/items/0.1.1_4.20_TrommelSaoVang.jpg" align="center" scale="0.5"
+			onloaded="copy(layer[scrollarea_left_trommel].width, width); copy(layer[scrollarea_left_trommel].height, height); layer[scrollarea_left_trommel].update();" >
+			</layer>
+		</layer>	
+	</layer>
+	<layer name="box_right_trommel" type="container" x="500" y="0" width="50%" height="100%" bgcapture="true" >
+		<layer name="scrollarea_right_trommel" url.flash="../plugins/scrollarea.swf" url.html5="../plugins/scrollarea.js" 
+		align="center" width="100%" height="100%" >
+			<layer name="image_right_trommel" url="../images/items/0.1.2_OT_4.20.png" align="center" scale="0.5"
+			onloaded="copy(layer[scrollarea_right_trommel].width, width); copy(layer[scrollarea_right_trommel].height, height); layer[scrollarea_right_trommel].update();" >
+			</layer>
+		</layer>
+	</layer>
+	<layer name="close_ctr_trommel" url="../icons/close.png" scale="0.2" align="righttop" onclick="action(close, ctr_trommel)" />
+</layer>-->
+
+<layer name="ctr_infotafel" keep="true" type="container" align="center" bgcapture="true" width="100%" height="100%" bgcolor="0x000000" visible="false" alpha="0" bgalpha="0.5" >
+	<layer name="scrollarea_infotafel" url.flash="../plugins/scrollarea.swf" url.html5="../plugins/scrollarea.js"
+		align="center" width="50%" height="50%">
+		<layer name="image_infotafel" url="../images/Plakat_Eyendorf-6_2017.jpg"
+			align="center" scale="0.2"
+			onloaded="copy(layer[scrollarea_infotafel].width, width); copy(layer[scrollarea_infotafel].height, height); layer[scrollarea_infotafel].update();" >
+		</layer>
+	</layer>
+	<layer name="close_ctr_infotafel" url="../images/Close.png" scale="0.2" align="righttop" onclick="action(close, ctr_infotafel)" />
+</layer>
+
+<layer name="ctr_beispielbild" keep="true" type="container" align="center" bgcapture="true" width="100%" height="100%" bgcolor="0x000000" visible="false" alpha="0" bgalpha="0.5" >
+	<layer name="scrollarea_beispielbild" url.flash="../plugins/scrollarea.swf" url.html5="../plugins/scrollarea.js"
+		align="center" width="50%" height="50%">
+		<layer name="image_beispielbild" url="../images/Bild1.png"
+			align="center" scale="0.8"
+			onloaded="copy(layer[scrollarea_beispielbild].width, width); copy(layer[scrollarea_beispielbild].height, height); layer[scrollarea_beispielbild].update();" >
+		</layer>
+	</layer>
+	<layer name="close_ctr_beispielbild" url="../images/Close.png" scale="0.2" align="righttop" onclick="action(close, ctr_beispielbild)" />
+</layer>
+
+<!--<layer name="ctr_video_trommel"
+       url.html5="../plugins/videoplayer.js"
+       url.flash="../plugins/videoplayer.swf"
+       videourl="../videos/4.3.3.3_Animation_Trommel_CoLoa.mp4"
+       posterurl="cats-poster.jpg"
+       align="center" x="0" y="0"
+       pausedonstart="false"
+       loop="false"
+       volume="1.0"
+       onvideoready=""
+       onvideoplay=""
+       onvideopaused=""
+       onvideocomplete=""
+       onerror=""
+       />-->
+
+</krpano>

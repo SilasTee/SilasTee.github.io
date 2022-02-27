@@ -1,0 +1,577 @@
+<krpano version="1.18" title="Virtual Tour" onstart="startup();">
+<!----> 
+	<action name="closemap">
+        set(onclick,action(openmap););
+        tween(plugin[map].scale,0.09,easeoutquad);
+    </action>
+    
+    <action name="openmap">
+        set(onclick,action(closemap););
+        tween(plugin[map].scale,0.2,easeoutquad);
+    </action>
+   
+
+
+	<action name="closezoom1">
+        set(onclick,action(openzoom1););
+        tween(plugin[zoom1].scale,0.2,easeoutquad);
+    </action>
+    
+    <action name="openzoom1">
+        set(onclick,action(closezoom1););
+        tween(plugin[zoom1].scale,0.4,easeoutquad);
+    </action>
+
+	<action name="closezoom2">
+        set(onclick,action(openzoom2););
+        tween(plugin[zoom2].scale,0.3,easeoutquad);
+    </action>
+    
+    <action name="openzoom2">
+        set(onclick,action(closezoom2););
+        tween(plugin[zoom2].scale,0.6,easeoutquad);
+    </action>
+
+	<action name="closezoom3">
+        set(onclick,action(openzoom3););
+        tween(plugin[zoom3].scale,0.1,easeoutquad);
+    </action>
+    
+    <action name="openzoom3">
+        set(onclick,action(closezoom3););
+        tween(plugin[zoom3].scale,0.3,easeoutquad);
+    </action>
+
+
+    
+    	<!-- Global Settings --> 
+	<plugin name="map" url="../images/map.jpg" keep="true"  
+	        align="rightbottom"  
+	        x="-100"
+	        y="-100"
+	        scale="0.2"
+	        handcursor="false" 
+	        alpha="0.7"
+	        scalechildren="true"
+            onclick="action(closemap);"
+            onhover="set(alpha,1.0);"
+			onout="set(alpha,0.7);"
+	/>
+ 
+ 
+<plugin name="zoom_button1" 
+	url="../images/zoom-in.png" 
+	parent="map"
+	keep="true"
+	align="lefttop"
+	edge="center"
+	x="240" 
+	y="330"
+	scale="0.17" 
+	zorder="4"
+	onclick="tween(plugin[zoom1].x,0,0.7);
+		     tween(plugin[zoom1].y,62,0.7);
+		     action(close_map);"
+	/>
+ 
+<plugin name="zoom_out1" 
+	url="../images/zoom-out.png" 
+	parent="zoom1"
+	keep="true"
+	align="righttop"
+	x="50" 
+	y="50"
+	scale="0.09" 
+	zorder="4"
+	onclick="tween(plugin[zoom1].x,-1000,0.7);
+		     tween(plugin[zoom1].y,-1000,0.7);
+		     action(show_map);"
+	/>
+
+<plugin name="zoom_button2" 
+	url="../images/zoom-in.png" 
+	parent="map"
+	keep="true"
+	align="lefttop"
+	edge="center"
+	x="90" 
+	y="780"
+	scale="0.17" 
+	zorder="4"
+	onclick="tween(plugin[zoom2].x,0,0.7);
+		     tween(plugin[zoom2].y,62,0.7);
+		     action(close_map);"
+	/>	
+	
+	-->
+
+
+<!-- Standpunkte in Übersichtskarte -->
+    <plugin name="DSC_1687_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="1750"  y="527" zorder="5" onhover="showtext('DSC_1687');" onclick="loadscene(scene_DSC_1687_Panorama, null, MERGE, BLEND(1));" />
+
+<!--
+    <plugin name="DSC_6742_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="1525"  y="330" zorder="5" onhover="showtext('DSC_6742_Panorama');" onclick="loadscene(scene_DSC_6742_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6762_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="1080"  y="340" zorder="5" onhover="showtext('DSC_6762 Panorama');" onclick="loadscene(scene_DSC_6762_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6770_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="1140"  y="320" zorder="5" onhover="showtext('DSC_6770 Panorama');" onclick="loadscene(scene_DSC_6770_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6783_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="1210"  y="320" zorder="5" onhover="showtext('DSC_6783 Panorama');" onclick="loadscene(scene_DSC_6783_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6794_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="1173"  y="406" zorder="5" onhover="showtext('DSC_6794 Panorama');" onclick="loadscene(scene_DSC_6794_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6812_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="415"  y="1780" zorder="5" onhover="showtext('DSC_6812 Panorama');" onclick="loadscene(scene_DSC_6812_Panorama, null, MERGE, BLEND(1));	
+    set(plugin[radarzoom1].visible, false); set(plugin[radarzoom2].visible, false); set(plugin[radarzoom3].visible, false);" />
+    <plugin name="DSC_6825_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="368"  y="2350" zorder="5" onhover="showtext('DSC_6825 Panorama');" onclick="loadscene(scene_DSC_6825_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6838_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="655"  y="2095" zorder="5" onhover="showtext('DSC_6838 Panorama');" onclick="loadscene(scene_DSC_6838_Panorama, null, MERGE, BLEND(1));	
+    set(plugin[radarzoom1].visible, false); set(plugin[radarzoom2].visible, false); set(plugin[radarzoom3].visible, false);" />
+    <plugin name="DSC_6851_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="625"  y="1735" zorder="5" onhover="showtext('DSC_6851 Panorama');" onclick="loadscene(scene_DSC_6851_Panorama, null, MERGE, BLEND(1));	
+    set(plugin[radarzoom1].visible, false); set(plugin[radarzoom2].visible, false); set(plugin[radarzoom3].visible, false);" />
+    <plugin name="DSC_6862_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="3060"  y="1490" zorder="5" onhover="showtext('DSC_6862 Panorama');" onclick="loadscene(scene_DSC_6862_Panorama, null, MERGE, BLEND(1));	
+    set(plugin[radarzoom1].visible, false); set(plugin[radarzoom2].visible, false); set(plugin[radarzoom3].visible, false);" />
+    <plugin name="DSC_6875_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="2945"  y="1493" zorder="5" onhover="showtext('DSC_6875 Panorama');" onclick="loadscene(scene_DSC_6875_Panorama, null, MERGE, BLEND(1));	
+    set(plugin[radarzoom1].visible, false); set(plugin[radarzoom2].visible, false); set(plugin[radarzoom3].visible, false);" />
+    <plugin name="DSC_6887_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="1452"  y="345" zorder="5" onhover="showtext('DSC_6887 Panorama');" onclick="loadscene(scene_DSC_6887_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6900_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="1382"  y="340" zorder="5" onhover="showtext('DSC_6900 Panorama');" onclick="loadscene(scene_DSC_6900_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6913_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="1415"  y="405" zorder="5" onhover="showtext('DSC_6913 Panorama');" onclick="loadscene(scene_DSC_6913_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6936_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="1432"  y="470" zorder="5" onhover="showtext('DSC_6936 Panorama');" onclick="loadscene(scene_DSC_6936_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6945_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="1340"  y="550" zorder="5" onhover="showtext('DSC_6945 Panorama');" onclick="loadscene(scene_DSC_6945_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6958_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="1223"  y="505" zorder="5" onhover="showtext('DSC_6958 Panorama');" onclick="loadscene(scene_DSC_6958_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6971_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="1270"  y="575" zorder="5" onhover="showtext('DSC_6971 Panorama');" onclick="loadscene(scene_DSC_6971_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6984_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="1500"  y="480" zorder="5" onhover="showtext('DSC_6984 Panorama');" onclick="loadscene(scene_DSC_6984_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6997_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="1450"  y="265" zorder="5" onhover="showtext('DSC_6997 Panorama');" onclick="loadscene(scene_DSC_6997_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_7009_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="1070"  y="435" zorder="5" onhover="showtext('DSC_7009 Panorama');" onclick="loadscene(scene_DSC_7009_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_7019_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="1125"  y="435" zorder="5" onhover="showtext('DSC_7019 Panorama');" onclick="loadscene(scene_DSC_7019_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_7040_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="1195"  y="440" zorder="5" onhover="showtext('DSC_7040 Panorama');" onclick="loadscene(scene_DSC_7040_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_7051_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="605"  y="765" zorder="5" onhover="showtext('DSC_7051 Panorama');" onclick="loadscene(scene_DSC_7051_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_7063_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="278"  y="874" zorder="5" onhover="showtext('DSC_7063 Panorama');" onclick="loadscene(scene_DSC_7063_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_7075_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="210"  y="775" zorder="5" onhover="showtext('DSC_7075 Panorama');" onclick="loadscene(scene_DSC_7075_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_7087_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="363"  y="761" zorder="5" onhover="showtext('DSC_7087 Panorama');" onclick="loadscene(scene_DSC_7087_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_7099_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="375"  y="685" zorder="5" onhover="showtext('DSC_7099 Panorama');" onclick="loadscene(scene_DSC_7099_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_7111_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="636"  y="293" zorder="5" onhover="showtext('DSC_7111_Panorama');" onclick="loadscene(scene_DSC_7111_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_7125_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="450"  y="310" zorder="5" onhover="showtext('DSC_7125_Panorama');" onclick="loadscene(scene_DSC_7125_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_7137_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="540"  y="403" zorder="5" onhover="showtext('DSC_7137_Panorama');" onclick="loadscene(scene_DSC_7137_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_7151_Panorama" url="../images/mappoint.png" keep="true" parent="map" align="leftttop" edge="center" 
+    x="528"  y="250" zorder="5" onhover="showtext('DSC_7151_Panorama');" onclick="loadscene(scene_DSC_7151_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="pano18" url="../images/heli_user_user_defaultpoint1.png" scale="4" keep="true" parent="map" align="leftttop" edge="center" 
+    x="1330"  y="400" zorder="5" onhover="showtext('Vietsoftpro - Aerial 2');" onclick="loadscene(pano18, null, MERGE, BLEND(1));" />
+    <plugin name="pano9" url="../images/heli_user_user_defaultpoint1.png" scale="4" keep="true" parent="map" align="leftttop" edge="center" 
+    x="2300"  y="767" zorder="5" onhover="showtext('Vietsoftpro - Aerial 1');" onclick="loadscene(pano9, null, MERGE, BLEND(1));" />    
+-->
+	<!--zoom1 Stps
+    <plugin name="DSC_7111_Panorama_zoom1" url="../images/mappoint.png" keep="true" parent="zoom1" align="leftttop" edge="center" 
+    x="595"  y="429" zorder="5" scale="0.6" onhover="showtext('DSC_7111_Panorama');" onclick="loadscene(scene_DSC_7111_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_7125_Panorama_zoom1" url="../images/mappoint.png" keep="true" parent="zoom1" align="leftttop" edge="center" 
+    x="1185"  y="650" zorder="5" scale="0.6" onhover="showtext('DSC_7125_Panorama');" onclick="loadscene(scene_DSC_7125_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_7137_Panorama_zoom1" url="../images/mappoint.png" keep="true" parent="zoom1" align="leftttop" edge="center" 
+    x="1020"  y="268" zorder="5" scale="0.6" onhover="showtext('DSC_7137_Panorama');" onclick="loadscene(scene_DSC_7137_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_7151_Panorama_zoom1" url="../images/mappoint.png" keep="true" parent="zoom1" align="leftttop" edge="center" 
+    x="587"  y="905" zorder="5" scale="0.6" onhover="showtext('DSC_7151_Panorama');" onclick="loadscene(scene_DSC_7151_Panorama, null, MERGE, BLEND(1));" />
+-->
+	<!--zoom2 Stps
+    <plugin name="DSC_7051_Panorama_zoom2" url="../images/mappoint.png" keep="true" parent="zoom2" align="leftttop" edge="center" 
+    x="730"  y="200" zorder="5" scale="0.4" onhover="showtext('DSC_7051 Panorama');" onclick="loadscene(scene_DSC_7051_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_7063_Panorama_zoom2" url="../images/mappoint.png" keep="true" parent="zoom2" align="leftttop" edge="center" 
+    x="960"  y="666" zorder="5" scale="0.4" onhover="showtext('DSC_7063 Panorama');" onclick="loadscene(scene_DSC_7063_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_7075_Panorama_zoom2" url="../images/mappoint.png" keep="true" parent="zoom2" align="leftttop" edge="center" 
+    x="455"  y="845" zorder="5" scale="0.4" onhover="showtext('DSC_7075 Panorama');" onclick="loadscene(scene_DSC_7075_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_7087_Panorama_zoom2" url="../images/mappoint.png" keep="true" parent="zoom2" align="leftttop" edge="center" 
+    x="622"  y="468" zorder="5" scale="0.4" onhover="showtext('DSC_7087 Panorama');" onclick="loadscene(scene_DSC_7087_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_7099_Panorama_zoom2" url="../images/mappoint.png" keep="true" parent="zoom2" align="leftttop" edge="center" 
+    x="275"  y="465" zorder="5" scale="0.4" onhover="showtext('DSC_7099 Panorama');" onclick="loadscene(scene_DSC_7099_Panorama, null, MERGE, BLEND(1));" />
+-->
+
+	<!--zoom3 Stps
+    <plugin name="DSC_7178_Panorama_zoom3" url="../images/mappoint.png" keep="true" parent="zoom3" align="leftttop" edge="center" 
+    x="70"  y="1030" zorder="5" scale="0.75" onhover="showtext('DSC_7178');" onclick="loadscene(scene_DSC_7178_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6742_Panorama_zoom3" url="../images/mappoint.png" keep="true" parent="zoom3" align="leftttop" edge="center" 
+    x="980"  y="1280" zorder="5" scale="0.75" onhover="showtext('DSC_6742_Panorama');" onclick="loadscene(scene_DSC_6742_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6762_Panorama_zoom3" url="../images/mappoint.png" keep="true" parent="zoom3" align="leftttop" edge="center" 
+    x="2130"  y="530" zorder="5" scale="0.75" onhover="showtext('DSC_6762 Panorama');" onclick="loadscene(scene_DSC_6762_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6770_Panorama_zoom3" url="../images/mappoint.png" keep="true" parent="zoom3" align="leftttop" edge="center" 
+    x="1990"  y="545" zorder="5" scale="0.75" onhover="showtext('DSC_6770 Panorama');" onclick="loadscene(scene_DSC_6770_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6783_Panorama_zoom3" url="../images/mappoint.png" keep="true" parent="zoom3" align="leftttop" edge="center" 
+    x="1790"  y="640" zorder="5" scale="0.75" onhover="showtext('DSC_6783 Panorama');" onclick="loadscene(scene_DSC_6783_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6794_Panorama_zoom3" url="../images/mappoint.png" keep="true" parent="zoom3" align="leftttop" edge="center" 
+    x="1698"  y="548" zorder="5" scale="0.75" onhover="showtext('DSC_6794 Panorama');" onclick="loadscene(scene_DSC_6794_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6887_Panorama_zoom3" url="../images/mappoint.png" keep="true" parent="zoom3" align="leftttop" edge="center" 
+    x="1033"  y="1069" zorder="5" scale="0.75" onhover="showtext('DSC_6887 Panorama');" onclick="loadscene(scene_DSC_6887_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6900_Panorama_zoom3" url="../images/mappoint.png" keep="true" parent="zoom3" align="leftttop" edge="center" 
+    x="1339"  y="906" zorder="5" scale="0.75" onhover="showtext('DSC_6900 Panorama');" onclick="loadscene(scene_DSC_6900_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6913_Panorama_zoom3" url="../images/mappoint.png" keep="true" parent="zoom3" align="leftttop" edge="center" 
+    x="1055"  y="845" zorder="5" scale="0.75" onhover="showtext('DSC_6913 Panorama');" onclick="loadscene(scene_DSC_6913_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6936_Panorama_zoom3" url="../images/mappoint.png" keep="true" parent="zoom3" align="leftttop" edge="center" 
+    x="680"  y="660" zorder="5" scale="0.75" onhover="showtext('DSC_6936 Panorama');" onclick="loadscene(scene_DSC_6936_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6945_Panorama_zoom3" url="../images/mappoint.png" keep="true" parent="zoom3" align="leftttop" edge="center" 
+    x="857"  y="452" zorder="5" scale="0.75" onhover="showtext('DSC_6945 Panorama');" onclick="loadscene(scene_DSC_6945_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6958_Panorama_zoom3" url="../images/mappoint.png" keep="true" parent="zoom3" align="leftttop" edge="center" 
+    x="1240"  y="392" zorder="5" scale="0.75" onhover="showtext('DSC_6958 Panorama');" onclick="loadscene(scene_DSC_6958_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6971_Panorama_zoom3" url="../images/mappoint.png" keep="true" parent="zoom3" align="leftttop" edge="center" 
+    x="1040"  y="328" zorder="5" scale="0.75" onhover="showtext('DSC_6971 Panorama');" onclick="loadscene(scene_DSC_6971_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6984_Panorama_zoom3" url="../images/mappoint.png" keep="true" parent="zoom3" align="leftttop" edge="center" 
+    x="430"  y="837" zorder="5" scale="0.75" onhover="showtext('DSC_6984 Panorama');" onclick="loadscene(scene_DSC_6984_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_6997_Panorama_zoom3" url="../images/mappoint.png" keep="true" parent="zoom3" align="leftttop" edge="center" 
+    x="1493"  y="1361" zorder="5" scale="0.75" onhover="showtext('DSC_6997 Panorama');" onclick="loadscene(scene_DSC_6997_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_7009_Panorama_zoom3" url="../images/mappoint.png" keep="true" parent="zoom3" align="leftttop" edge="center" 
+    x="1770"  y="360" zorder="5" scale="0.75" onhover="showtext('DSC_7009 Panorama');" onclick="loadscene(scene_DSC_7009_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_7019_Panorama_zoom3" url="../images/mappoint.png" keep="true" parent="zoom3" align="leftttop" edge="center" 
+    x="1600"  y="295" zorder="5" scale="0.75" onhover="showtext('DSC_7019 Panorama');" onclick="loadscene(scene_DSC_7019_Panorama, null, MERGE, BLEND(1));" />
+    <plugin name="DSC_7040_Panorama_zoom3" url="../images/mappoint.png" keep="true" parent="zoom3" align="leftttop" edge="center" 
+    x="1400"  y="357" zorder="5" scale="0.75" onhover="showtext('DSC_7040 Panorama');" onclick="loadscene(scene_DSC_7040_Panorama, null, MERGE, BLEND(1));" />
+-->
+
+    
+
+    <!-- activated hotspot 
+    <plugin name="activespot" 
+    		url="../images/mappointactive.png" 
+    		keep="true" 
+    		align="center" 
+    		edge="center" 
+    		visible="false" 
+    		zorder="10" 
+    		/>
+ 
+    <plugin name="activespot1" 
+    		url="../images/mappointactive.png" 
+    		keep="true" 
+    		align="center" 
+    		edge="center" 
+    		visible="false" 
+    		zorder="10" 
+    		/>
+
+    <plugin name="activespot_uav" 
+    		url="../images/heli_user_user_defaultpoint1.png" 
+    		keep="true" 
+    		align="center" 
+    		edge="center" 
+    		visible="false" 
+    		zorder="10" 
+    		/>
+           
+   	<plugin name="radar"
+	        url="%SWFPATH%/plugins/radar.js"
+	        zorder="1"
+	        keep="true"
+	        heading="120"
+	        parent="map"
+	        align="lefttop"
+	        edge="center"
+	        x="0" y="0"
+	        linecolor="0"
+	        fillcolor="0xFF0000"
+	        scale="2.7"
+	        visible="false"
+	        alpha="2.6"
+	        />
+   	<plugin name="radarzoom1"
+	        url="%SWFPATH%/plugins/radar.js"
+	        zorder="1"
+	        keep="true"
+	        heading="120"
+	        parent="zoom1"
+	        align="lefttop"
+	        edge="center"
+	        x="0" y="0"
+	        linecolor="0"
+	        fillcolor="0xFF0000"
+	        scale="1.6"
+	        visible="false"
+	        alpha="2.6"
+	        />
+   	<plugin name="radarzoom2"
+	        url="%SWFPATH%/plugins/radar.js"
+	        zorder="1"
+	        keep="true"
+	        heading="120"
+	        parent="zoom2"
+	        align="lefttop"
+	        edge="center"
+	        x="0" y="0"
+	        linecolor="0"
+	        fillcolor="0xFF0000"
+	        scale="1.1"
+	        visible="false"
+	        alpha="2.6"
+	        />
+   	<plugin name="radarzoom3"
+	        url="%SWFPATH%/plugins/radar.js"
+	        zorder="1"
+	        keep="true"
+	        heading="120"
+	        parent="zoom3"
+	        align="lefttop"
+	        edge="center"
+	        x="0" y="0"
+	        linecolor="0"
+	        fillcolor="0xFF0000"
+	        scale="2"
+	        visible="false"
+	        alpha="2.6"
+	        />
+-->	        
+    
+    <!-- actions 
+  	<action name="activatespot">
+		set(plugin[activespot1].parent, plugin[%1]);
+		set(plugin[activespot1].visible, true);
+		
+		copy(plugin[radar].x, plugin[%1].x);
+		copy(plugin[radar].y, plugin[%1].y);
+		
+		set(plugin[radar].visible, true);
+		set(plugin[radar].heading, %2);
+	</action>
+
+  	<action name="activatespotzoom1">
+		set(plugin[activespot].parent, plugin[%1]);
+		set(plugin[activespot].visible, true);
+		set(plugin[activespot].scale, 0.6);
+		
+		copy(plugin[radarzoom1].x, plugin[%1].x);
+		copy(plugin[radarzoom1].y, plugin[%1].y);
+		
+		set(plugin[radarzoom1].visible, true);
+		set(plugin[radarzoom1].heading, %2);
+		set(plugin[radarzoom2].visible, false);
+		set(plugin[radarzoom3].visible, false);
+	</action>
+
+  	<action name="activatespotzoom2">
+		set(plugin[activespot].parent, plugin[%1]);
+		set(plugin[activespot].visible, true);
+		set(plugin[activespot].scale, 0.4);
+		
+		copy(plugin[radarzoom2].x, plugin[%1].x);
+		copy(plugin[radarzoom2].y, plugin[%1].y);
+		
+		set(plugin[radarzoom2].visible, true);
+		set(plugin[radarzoom2].heading, %2);
+		set(plugin[radarzoom1].visible, false);
+		set(plugin[radarzoom3].visible, false);
+	</action>
+
+  	<action name="activatespotzoom3">
+		set(plugin[activespot].parent, plugin[%1]);
+		set(plugin[activespot].visible, true);
+		set(plugin[activespot].scale, 0.75);
+		
+		copy(plugin[radarzoom3].x, plugin[%1].x);
+		copy(plugin[radarzoom3].y, plugin[%1].y);
+		
+		set(plugin[radarzoom3].visible, true);
+		set(plugin[radarzoom3].heading, %2);
+		set(plugin[radarzoom2].visible, false);
+		set(plugin[radarzoom1].visible, false);
+  </action>
+
+  	<action name="activatespot_uav">
+		set(plugin[activespot_uav].parent, plugin[%1]);
+		set(plugin[activespot_uav].visible, true);
+    set(plugin[activespot1].visible, false);
+		
+		copy(plugin[radar].x, plugin[%1].x);
+		copy(plugin[radar].y, plugin[%1].y);
+		
+		set(plugin[radar].visible, true);
+		set(plugin[radar].heading, %2);
+		set(plugin[radarzoom1].visible, false);
+		set(plugin[radarzoom2].visible, false);
+		set(plugin[radarzoom3].visible, false);
+	</action>
+-->
+
+
+
+<!-- definition des kartenrahmens 
+
+<plugin name="frame_map" 
+	url="../plugins/frame_map.png" 
+	keep="true" 
+	alpha="0.5" 
+	align="rightbottom" 
+	x="10" 
+	y="10"
+	zorder="3"
+	children="true"
+	onhover="set(alpha,1.0);"
+	onout="set(alpha,0.5);"
+	width="395.55" 
+    height="557"
+	/>		
+-->
+
+<!-- definition des close-buttons 
+<plugin name="map_close" 
+	url="../plugins/button_close.png" 
+	parent="frame_map"
+	align="lefttop" 
+	keep="true"
+	x="-13" 
+	y="-7.5" 
+	zorder="4"
+	onclick="tween(plugin[frame_map].x,-405,0.7);
+		     tween(plugin[frame_map].y,-355,0.7);
+		     tween(plugin[show_map].x,0,0.5);
+		     tween(plugin[show_map].y,0,0.5);"
+	onhover="showtext(close map);"
+	/>
+-->
+
+
+<!-- definition des buttons zum maximieren der karte
+<action name="show_map" 
+	onclick="tween(plugin[map].x,3,0.7);
+		       tween(plugin[map].y,60,0.7);"
+	/>
+-->
+
+<!-- definition des buttons zum wechseln ab 2012
+<plugin name="button_change_neu" 
+	url="../plugins/ab_2012.png" 
+	parent="frame_map"
+	align="righttop" 
+	keep="true"
+	x="5" 
+	y="5" 
+	zorder="4"
+	onclick="set(plugin[scene_01_Panorama_in].visible, false);
+    		 set(plugin[scene_02_Panorama_in].visible, false);
+    		 set(plugin[scene_03_Panorama_in].visible, false);
+    		 set(plugin[scene_04_Panorama_in].visible, false);
+    		 set(plugin[scene_05_Panorama_in].visible, false);
+    		 set(plugin[scene_06_Panorama_in].visible, false);
+    		 set(plugin[scene_07_Panorama_in].visible, false);
+    		 set(plugin[scene_08_Panorama_in].visible, false);
+    		 set(plugin[scene_09_Panorama_in].visible, false);
+    		 set(plugin[scene_10_Panorama_out].visible, false);
+    		 set(plugin[scene_11_Panorama_out].visible, false);
+    		 set(plugin[scene_12_Panorama_out].visible, false);
+    		 set(plugin[scene_13_Panorama_out].visible, false);
+    		 set(plugin[scene_14_Panorama_out].visible, false);
+    		 set(plugin[scene_15_Panorama_out].visible, false);
+    		 set(plugin[scene_16_Panorama_out].visible, false);
+    		 set(plugin[scene_17_Panorama_out].visible, false);
+    		 set(plugin[scene_18_Panorama_out].visible, false);
+    		 set(plugin[scene_19_Panorama_out].visible, false);
+    		 set(plugin[scene_20_Panorama_out].visible, false);
+    		 
+    		 set(plugin[scene_DSC_0552 Panorama].visible, true);
+    		 set(plugin[scene_DSC_0562 Panorama].visible, true);
+    		 set(plugin[scene_DSC_0576 Panorama].visible, true);
+    		 set(plugin[scene_DSC_0588 Panorama].visible, true);
+    		 set(plugin[scene_DSC_0599 Panorama].visible, true);
+    		 set(plugin[scene_DSC_0613 Panorama].visible, true);
+    		 set(plugin[scene_DSC_0624 Panorama].visible, true);
+    		 set(plugin[scene_DSC_0635 Panorama].visible, true);
+    		 set(plugin[scene_DSC_0647 Panorama].visible, true);
+    		 set(plugin[scene_DSC_0659 Panorama].visible, true);
+    		 set(plugin[scene_DSC_0672 Panorama].visible, true);
+    		 set(plugin[scene_DSC_0683 Panorama].visible, true);
+    		 set(plugin[scene_DSC_0693 Panorama].visible, true);
+    		 set(plugin[scene_DSC_0707 Panorama].visible, true);
+    		 set(plugin[scene_DSC_0717 Panorama].visible, true);
+    		 
+    		 set(plugin[button_change_alt].visible, true);
+    		 set(plugin[button_change_neu].visible, false);
+    		 
+    		 loadscene(scene_DSC_0599 Panorama, null, MERGE, BLEND(1));"		     
+    		 	     
+	onhover="showtext(zeigt den Zustand ab dem Jahr 2012);"
+	/>-->
+	
+	<!--hier eine Startscene der neuen Panos einfügen-->
+	
+	
+	
+	
+
+
+<!-- definition des buttons zum wechseln bis 2012
+<plugin name="button_change_alt" 
+	url="../plugins/bis_2012.png" 
+	parent="frame_map"
+	align="righttop" 
+	keep="true"
+	visible="false"
+	x="5" 
+	y="5" 
+	zorder="4"
+	onclick="set(plugin[scene_01_Panorama_in].visible, true);
+    		 set(plugin[scene_02_Panorama_in].visible, true);
+    		 set(plugin[scene_03_Panorama_in].visible, true);
+    		 set(plugin[scene_04_Panorama_in].visible, true);
+    		 set(plugin[scene_05_Panorama_in].visible, true);
+    		 set(plugin[scene_06_Panorama_in].visible, true);
+    		 set(plugin[scene_07_Panorama_in].visible, true);
+    		 set(plugin[scene_08_Panorama_in].visible, true);
+    		 set(plugin[scene_09_Panorama_in].visible, true);
+    		 set(plugin[scene_10_Panorama_out].visible, true);
+    		 set(plugin[scene_11_Panorama_out].visible, true);
+    		 set(plugin[scene_12_Panorama_out].visible, true);
+    		 set(plugin[scene_13_Panorama_out].visible, true);
+    		 set(plugin[scene_14_Panorama_out].visible, true);
+    		 set(plugin[scene_15_Panorama_out].visible, true);
+    		 set(plugin[scene_16_Panorama_out].visible, true);
+    		 set(plugin[scene_17_Panorama_out].visible, true);
+    		 set(plugin[scene_18_Panorama_out].visible, true);
+    		 set(plugin[scene_19_Panorama_out].visible, true);
+    		 set(plugin[scene_20_Panorama_out].visible, true);
+    		  
+    		 set(plugin[scene_DSC_0552 Panorama].visible, false);
+    		 set(plugin[scene_DSC_0562 Panorama].visible, false);
+    		 set(plugin[scene_DSC_0576 Panorama].visible, false);
+    		 set(plugin[scene_DSC_0588 Panorama].visible, false);
+    		 set(plugin[scene_DSC_0599 Panorama].visible, false);
+    		 set(plugin[scene_DSC_0613 Panorama].visible, false);
+    		 set(plugin[scene_DSC_0624 Panorama].visible, false);
+    		 set(plugin[scene_DSC_0635 Panorama].visible, false);
+    		 set(plugin[scene_DSC_0647 Panorama].visible, false);
+    		 set(plugin[scene_DSC_0659 Panorama].visible, false);
+    		 set(plugin[scene_DSC_0672 Panorama].visible, false);
+    		 set(plugin[scene_DSC_0683 Panorama].visible, false);
+    		 set(plugin[scene_DSC_0693 Panorama].visible, false);
+    		 set(plugin[scene_DSC_0707 Panorama].visible, false);
+    		 set(plugin[scene_DSC_0717 Panorama].visible, false);
+
+    		 
+			 set(plugin[button_change_alt].visible, false);    		 
+    		 set(plugin[button_change_neu].visible, true);
+    		 
+    		 loadscene(scene_01_Panorama_in, null, MERGE, BLEND(1));"	     
+	onhover="showtext(zeigt den Zustand bis zu dem Jahr 2012);"
+	/>-->
+	
+	<!--hier eine Startscene der alten Panos einfügen-->	
+
+
+</krpano>
+
