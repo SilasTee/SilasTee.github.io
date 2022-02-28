@@ -51,11 +51,156 @@
 	  <a href="../about.html">Über</a>
 	</div>
 	<P> 
-		Auf dieser Seite ist das Modell eines vor Ort gefundenen  Flintmeissels dargestellt.  
+		Auf dieser Seite ist das Modell der Grabanlage in zwei unterschiedlichen Ansichten dargestellt. 
+		Einerseits ein Modell welches ausschließlich auf photogrammtrischen Daten basiert, andererseits ein Modell, welches aus einer kombinierten Photogrammetrie und Laserscanning Aufnahme des Gebietes entstanden ist.
+		Beide Modelle sind texturiert.  
 		<hr/>
-		Es kann gewählt werden zwischen zwei Formen der Visualisierung:  
+		Es kann gewählt werden zwischen den zwei Formen der Visualisierung:  
 		</P>
+		</center>
+		<br>
+		</br>
+<div id="container">		
+		
+	<div id="page_content" style="margin: 0; position: relative; width: 100%; text-align: center;">
+		<canvas id="cv" style="border: 1px solid;" width="700" height="600"  >
+		</canvas>
+		
+	
+	
+			<div id="tip" style="display:block; color:#ffffff; padding:5px; position:absolute; left:1%; bottom:1%; background-color:#000000; height:32px; width:300px; 
+		border-radius:5px; border:1px solid #777777; font-family:Arial,sans-serif; font-size:small; opacity:0.5; pointer-events:none;"> 
+			Drag mouse to rotate | Strg + left mouse to drag<br />
+			Scroll mouse wheel to zoom
+			
+		</div>
+
+	
+	
+	
+	<script type="text/javascript" src="../jsc3d-full-1.6.5/jsc3d.js"></script>
+	<script type="text/javascript" src="../jsc3d-full-1.6.5/jsc3d.webgl.js"></script>
+	<script type="text/javascript" src="../jsc3d-full-1.6.5/jsc3d.touch.js"></script>
+	<script type="text/javascript" src="../jsc3d-full-1.6.5/jsc3d.console.js"></script>
+
+	<script type="text/javascript">
+
+			/**
+			 * Change display definition.
+			 */
+			function changeDefinition(definition) {
+				// We don't need FSAA since Chrome already enables MSAA in WebGL by default.
+				if(definition == 'high' && viewer.isWebGLEnabled() && JSC3D.PlatformInfo.browser == 'chrome')
+					definition = 'standard';
+
+				viewer.setDefinition(definition);
+				viewer.update();
+			}
+	</script>
+	
+
+	<script type="text/javascript">
+	// setup the log console
+	JSC3D.console.setup('main_frame', '120px');
+
+	
+
+	
+	var canvas = document.getElementById('cv');	
+	var viewer = new JSC3D.Viewer(canvas);
+	
+	window.addEventListener('resize', resizeCanvas, false);
+	
+//Funktion um die Größe des Canvas-Elements anzupassen
+ function resizeCanvas() 
+ 	{
+ 	canvas.width = window.innerWidth*0.7;
+    canvas.height = window.innerHeight*0.6;
+//initialisieren des Viewers/Vergeben der Parameter
+
+	viewer.setParameter('SceneUrl', 'eyendorf_ls_dense_cloud/flintmeissel_nT.obj');	
+	viewer.setParameter('InitRotationX', 26);
+	viewer.setParameter('InitRotationY', 210);
+	viewer.setParameter('InitRotationZ', 80);
+	viewer.setParameter('ModelColor', '#cc9966');
+	viewer.setParameter('BackgroundColor1', '#FFFFFF');
+	viewer.setParameter('BackgroundColor2', '#cccccc');
+	viewer.setParameter('RenderMode', 'texture');
+	viewer.setParameter('Definition', 'high');
+	viewer.setParameter('ProgressBar', 'on');
+	viewer.setParameter('MipMapping', 'on');
+	viewer.setParameter('Background', 'off');
+	viewer.setParameter('Renderer', 'webgl');
+	
+	viewer.init();}
+	
+	viewer.update();	
+	
+		/*
+		 * Show our user-defined progress indicator in loading.
+		*/
+		
+
+/*
+		viewer.onloadingcomplete = viewer.onloadingaborted = viewer.onloadingerror = function() {
+			displayUserDefinedProgressBar(false);
+
+			if(logoTimerID > 0)
+				return;
+*/
+			
+				
+
+	
+	
+	
+//aufrufen der Größenanpassung
+	resizeCanvas();
+	
+	
+	var textCanvas = document.getElementById("text");	
+	var ctx = textCanvas.getContext('2d');
+	ctx.font = '14px Calibri';
+	ctx.fillStyle = '#000000';
+
+	//viewer.update();
+
+
+
+  </script>
+
+<!--
+	<input type="button" value="Rotate down" onClick="viewer.rotate(-10,0,0);viewer.update();"/> 
+	<input type="button" value="Rotate up" onClick="viewer.rotate(10,0,0);viewer.update();"/> 
+	<input type="button" value="Rotate left" onClick="viewer.rotate(0,-10,0);viewer.update();"/> 
+	<input type="button" value="Rotate right" onClick="viewer.rotate(0,10,0);viewer.update();"/>	
+	
+	<input type="button" value="other" onClick="viewer.replaceSceneFromUrl('models/diving_weight.obj');viewer.update();"/> 
+-->
+
+	</div>
+	
+	
+	
+	
+
+	
+	
+	
+
+<div id="footer">
+</div>
+</div>
+<!--</form>-->
+
+  	
+  	
+
+
 
 
 </body>
+
 </html>
+
+
